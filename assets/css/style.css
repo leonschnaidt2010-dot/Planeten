@@ -1,0 +1,317 @@
+:root{
+  --glass-bg: rgba(18, 25, 43, 0.55);
+  --glass-border: rgba(255,255,255,0.10);
+  --text-75: rgba(255,255,255,0.75);
+  --text-55: rgba(255,255,255,0.55);
+}
+
+html, body { height: 100%; }
+
+body{
+  color: #fff;
+  background: radial-gradient(ellipse at top, #0b1530 0%, #05070f 55%, #000 100%);
+  overflow-x: hidden;
+}
+
+.text-white-75{ color: var(--text-75) !important; }
+
+.bg-glass{
+  background: rgba(10, 14, 24, 0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.card-glass{
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+
+.home .starfield{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.70) 0, rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,0.55) 0, rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,0.60) 0, rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 85% 70%, rgba(255,255,255,0.40) 0, rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 55% 55%, rgba(255,255,255,0.35) 0, rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 15% 60%, rgba(255,255,255,0.30) 0, rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 45% 10%, rgba(255,255,255,0.35) 0, rgba(255,255,255,0) 60%);
+  background-size: 240px 240px;
+  opacity: 0.75;
+  animation: drift 40s linear infinite;
+}
+
+@keyframes drift{
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-120px, 60px, 0); }
+}
+
+.system-hero{
+  overflow: hidden;
+}
+
+.system-hero-inner{
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(980px 560px at 65% 40%, rgba(120,170,255,0.16), rgba(0,0,0,0) 60%),
+    radial-gradient(880px 520px at 25% 60%, rgba(255,190,90,0.10), rgba(0,0,0,0) 55%),
+    linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.22));
+}
+
+.orbit-svg{
+  position: absolute;
+  inset: 0;
+  opacity: 0.60;
+}
+
+.system-planets{
+  position: absolute;
+  inset: 0;
+}
+
+.sun-btn{
+  position: absolute;
+  left: -190px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 420px;
+  height: 420px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.sun-disc{
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.55), rgba(255,255,255,0) 35%),
+    radial-gradient(circle at 55% 55%, #ffd179, #ff9f1a 55%, #ff5f00 100%);
+  box-shadow: 0 0 80px rgba(255, 160, 40, 0.25);
+}
+
+.planet-btn{
+  appearance: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #fff;
+  position: absolute;
+  outline: none;
+}
+
+.planet-btn:focus-visible .planet-dot,
+.sun-btn:focus-visible .sun-disc{
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.22), 0 0 0 7px rgba(77, 155, 255, 0.25);
+}
+
+.planet-dot{
+  width: var(--size, 60px);
+  height: var(--size, 60px);
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 35%),
+    radial-gradient(circle at 65% 75%, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 55%),
+    var(--tex, radial-gradient(circle at 30% 30%, #bbb, #333));
+  transition: transform 240ms ease, filter 240ms ease;
+  position: relative;
+}
+
+.planet-btn:hover .planet-dot,
+.planet-btn:focus-visible .planet-dot,
+.sun-btn:hover .sun-disc,
+.sun-btn:focus-visible .sun-disc{
+  transform: translateY(-4px) scale(1.03);
+  filter: saturate(1.12);
+}
+
+.planet-label{
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 12px);
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.14);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.90rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.sun-btn .planet-label{
+  top: auto;
+  bottom: 58px;
+  left: 65%;
+}
+
+.planet-btn:hover .planet-label,
+.planet-btn:focus-visible .planet-label,
+.sun-btn:hover .planet-label,
+.sun-btn:focus-visible .planet-label{
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.planet-dot.ring::after{
+  content: "";
+  position: absolute;
+  inset: -18%;
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,0.12);
+  transform: rotate(-18deg);
+}
+
+.planet-strip-wrap{
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 10px;
+}
+
+.planet-strip{
+  display: flex;
+  align-items: end;
+  gap: 16px;
+  min-height: 100px;
+  padding: 10px 6px;
+}
+
+.selected-planet-visual{
+  width: min(420px, 88vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow: 0 26px 80px rgba(0,0,0,0.55);
+  background: var(--tex, radial-gradient(circle at 30% 30%, #bbb, #333));
+  position: relative;
+}
+
+.selected-planet-visual.giant{
+  width: min(520px, 92vw);
+}
+
+.selected-planet-visual.ring::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 150%;
+  height: 46%;
+  transform: translate(-50%, -50%) rotate(-16deg);
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,0.16);
+  filter: blur(0.2px);
+}
+
+.fact{
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  background: rgba(0,0,0,0.18);
+  padding: 12px 14px;
+  height: 100%;
+}
+
+.fact .k{ color: var(--text-55); font-size: 0.85rem; }
+.fact .v{ font-weight: 600; }
+
+body.history{
+  background: radial-gradient(ellipse at top, #11193a 0%, #070a14 55%, #000 100%);
+}
+
+.timeline{
+  position: relative;
+  padding-left: 22px;
+}
+
+.timeline::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 9px;
+  width: 2px;
+  background: rgba(255,255,255,0.18);
+}
+
+.tl-item{
+  position: relative;
+  padding: 0 0 22px 0;
+}
+
+.tl-item:last-child{ padding-bottom: 0; }
+
+.tl-dot{
+  position: absolute;
+  left: 2px;
+  top: 18px;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.10);
+}
+
+.tl-card{
+  margin-left: 24px;
+  border: 1px solid var(--glass-border);
+  border-radius: 1.25rem;
+  background: rgba(0,0,0,0.18);
+  overflow: hidden;
+  transform: translateY(12px);
+  opacity: 0;
+  transition: transform 360ms ease, opacity 360ms ease;
+}
+
+.tl-card.in-view{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.tl-img{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: rgba(0,0,0,0.25);
+}
+
+@media (min-width: 992px){
+  .timeline{ padding-left: 0; }
+  .timeline::before{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .tl-item{
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr;
+    align-items: start;
+  }
+  .tl-dot{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .tl-card{
+    margin-left: 0;
+    width: 100%;
+  }
+  .tl-item.left .tl-card{ grid-column: 1; }
+  .tl-item.right .tl-card{ grid-column: 3; }
+  .system-hero-inner{ height: 580px; }
+  .sun-btn{ width: 480px; height: 480px; left: -220px; }
+}

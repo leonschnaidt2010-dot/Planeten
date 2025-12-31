@@ -1,0 +1,62 @@
+[
+  {
+    "year": "1957-10-04",
+    "title": "Sputnik 1",
+    "text": "Erster künstlicher Satellit im Orbit – Start der Raumfahrtära.",
+    "keyword": "Sputnik 1 satellite"
+  },
+  {
+    "year": "1961-04-12",
+    "title": "Erster Mensch im All",
+    "text": "Juri Gagarin umkreist die Erde (Wostok 1).",
+    "keyword": "Yuri Gagarin Vostok 1"
+  },
+  {
+    "year": "1969-07-20",
+    "title": "Apollo 11 Mondlandung",
+    "text": "Erste Menschen auf dem Mond.",
+    "keyword": "Apollo 11 lunar module"
+  },
+  {
+    "year": "1971-04-19",
+    "title": "Salyut 1",
+    "text": "Erste Raumstation im Orbit.",
+    "keyword": "Salyut 1 space station"
+  },
+  {
+    "year": "1977-09-05",
+    "title": "Voyager 1",
+    "text": "Start einer der weitesten Missionen – Erkundung der äußeren Planeten.",
+    "keyword": "Voyager 1 spacecraft"
+  },
+  {
+    "year": "1981-04-12",
+    "title": "Space Shuttle (STS-1)",
+    "text": "Erster Flug des Space Shuttles Columbia.",
+    "keyword": "Space Shuttle Columbia STS-1"
+  },
+  {
+    "year": "1990-04-24",
+    "title": "Hubble Space Telescope",
+    "text": "Start des Hubble-Weltraumteleskops.",
+    "keyword": "Hubble Space Telescope deployment"
+  },
+  {
+    "year": "1998-11-20",
+    "title": "ISS beginnt",
+    "text": "Start des ersten Moduls (Zarya).",
+    "keyword": "International Space Station Zarya module"
+  },
+  {
+    "year": "2012-08-06",
+    "title": "Curiosity landet auf Mars",
+    "text": "Rover Curiosity landet im Gale-Krater.",
+    "keyword": "Mars Curiosity rover landing"
+  },
+  {
+    "year": "2021-02-18",
+    "title": "Perseverance landet auf Mars",
+    "text": "Rover Perseverance landet im Jezero-Krater.",
+    "keyword": "Mars Perseverance rover Jezero"
+  }
+]
